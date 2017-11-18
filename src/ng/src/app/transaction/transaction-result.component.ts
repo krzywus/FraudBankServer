@@ -12,8 +12,4 @@ export class TransactionResultComponent implements OnInit {
     ngOnInit(): void {
 
     }
-
-    login() {
-
-    }
 }

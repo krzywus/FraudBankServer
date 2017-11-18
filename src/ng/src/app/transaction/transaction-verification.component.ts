@@ -12,8 +12,4 @@ export class TransactionVerificationComponent implements OnInit {
     ngOnInit(): void {
 
     }
-
-    login() {
-
-    }
 }
