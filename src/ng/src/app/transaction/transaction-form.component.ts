@@ -13,7 +13,8 @@ export class TransactionFormComponent implements OnInit {
 
     }
 
-    login() {
-
+    send(recipient: string, account: string,
+         amount: string, title: string) {
+        
     }
 }
