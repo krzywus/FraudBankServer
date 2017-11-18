@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
     }
 
-    login() {
+    login(username: string, password: string) {
 
     }
 }
