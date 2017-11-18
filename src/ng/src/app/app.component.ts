@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { Component }          from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    template: `
+    <h1>{{title}}</h1>
+    <!--<nav>-->
+        <!--<a routerLink="/login" routerLinkActive="active" style="margin:1%">-->
+            <!--Dashboard</a>-->
+    <!--</nav>-->
+    <router-outlet></router-outlet>
+  `,
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+    title = "BKL4";
 }
