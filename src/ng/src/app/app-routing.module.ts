@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'trres',  component: TransactionResultComponent },
   { path: 'history',  component: HistoryComponent },
   { path: '403',  component: ForbiddenComponent },
+  { path: '**', redirectTo: '/403', pathMatch: 'full' },
 ];
 
 @NgModule({
