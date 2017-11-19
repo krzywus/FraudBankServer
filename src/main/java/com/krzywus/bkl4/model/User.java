@@ -22,9 +22,6 @@ public class User {
     @Column(name = "username")
     private String firstName;
 
-    @Column(name = "is_available")
-    private boolean isAvailable = true;
-
     @JsonIgnore
     @Column(name = "password")
     private String password;
