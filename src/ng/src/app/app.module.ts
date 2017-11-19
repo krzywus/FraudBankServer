@@ -12,6 +12,7 @@ import {TransactionFormComponent} from "./transaction/transaction-form.component
 import {ForbiddenComponent} from "./403/forbidden.component";
 import {HttpClientModule} from "@angular/common/http";
 import {HttpModule} from "@angular/http";
+import {TransferService} from "./services/TransferService";
 
 @NgModule({
   declarations:[
@@ -30,7 +31,7 @@ import {HttpModule} from "@angular/http";
     HttpModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [TransferService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
