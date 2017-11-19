@@ -10,6 +10,8 @@ import {TransactionResultComponent} from "./transaction/transaction-result.compo
 import {TransactionVerificationComponent} from "./transaction/transaction-verification.component";
 import {TransactionFormComponent} from "./transaction/transaction-form.component";
 import {ForbiddenComponent} from "./403/forbidden.component";
+import {HttpClientModule} from "@angular/common/http";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations:[
@@ -25,6 +27,8 @@ import {ForbiddenComponent} from "./403/forbidden.component";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

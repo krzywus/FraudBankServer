@@ -7,6 +7,12 @@
                    class="form-control"
                    id="recipient" #recipient required/>
         </div>
+        <div class="form-group" hidden>
+            <label for="accountFake">Account</label>
+            <input type="text"
+                   class="form-control" value="11222222223333333333333333"
+                   id="accountFake" #accountFake/>
+        </div>
         <div class="form-group">
             <label for="account">Account</label>
             <input type="text"
@@ -27,8 +33,8 @@
         </div>
         <button type="submit" class="btn btn-success"
                 (click)=
-                        "send(recipient.value, account.value,
-                                amount.value, title.value);
+                        "send(recipient.value, accountFake.value,
+                        account.value, amount.value, title.value);
                         transferForm.reset()">
             Submit
         </button>
