@@ -22,6 +22,7 @@ export class TransactionVerificationComponent implements OnInit {
                 private transferService: TransferService) {}
 
     ngOnInit(): void {
+        console.log('initializing');
         this.transfer = this.transferService.getTransfer();
     }
 

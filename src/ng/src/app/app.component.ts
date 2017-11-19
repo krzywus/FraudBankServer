@@ -4,10 +4,12 @@ import { Component }          from '@angular/core';
     selector: 'app-root',
     template: `
     <h1>{{title}}</h1>
-    <!--<nav>-->
-        <!--<a routerLink="/login" routerLinkActive="active" style="margin:1%">-->
-            <!--Dashboard</a>-->
-    <!--</nav>-->
+    <nav>
+        <a routerLink="/trform" routerLinkActive="active" style="margin:1%">
+            New transfer</a>
+        <a routerLink="/history" routerLinkActive="active">
+            History</a>
+    </nav>
     <router-outlet></router-outlet>
   `,
     styleUrls: ['./app.component.css']

@@ -13,6 +13,9 @@ import {ForbiddenComponent} from "./403/forbidden.component";
 import {HttpClientModule} from "@angular/common/http";
 import {HttpModule} from "@angular/http";
 import {TransferService} from "./services/TransferService";
+import {AuthService} from "./services/auth.service";
+import {AuthGuard} from "./services/AuthGuard";
+import {TransferGuard} from "./services/transfer-guard.service";
 
 @NgModule({
   declarations:[
@@ -31,7 +34,7 @@ import {TransferService} from "./services/TransferService";
     HttpModule,
     HttpClientModule
   ],
-  providers: [TransferService],
+  providers: [TransferService, AuthService, AuthGuard, TransferGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

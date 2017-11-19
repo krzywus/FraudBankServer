@@ -7,20 +7,24 @@ import {TransactionVerificationComponent} from "./transaction/transaction-verifi
 import {TransactionResultComponent} from "./transaction/transaction-result.component";
 import {HistoryComponent} from "./history/history.component";
 import {ForbiddenComponent} from "./403/forbidden.component";
+import {AuthGuard} from "./services/AuthGuard";
+import {buildPath} from "selenium-webdriver/http";
+import {TransferGuard} from "./services/transfer-guard.service";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login',  component: LoginComponent },
-  { path: 'trform',  component: TransactionFormComponent },
-  { path: 'trver',  component: TransactionVerificationComponent },
-  { path: 'trres',  component: TransactionResultComponent },
-  { path: 'history',  component: HistoryComponent },
+  { path: 'trform',  component: TransactionFormComponent, canActivate: [AuthGuard]},
+  { path: 'trver',  component: TransactionVerificationComponent,canActivate: [TransferGuard] },
+  { path: 'trres',  component: TransactionResultComponent,canActivate: [TransferGuard] },
+  { path: 'history',  component: HistoryComponent, canActivate: [AuthGuard] },
   { path: '403',  component: ForbiddenComponent },
   { path: '**', redirectTo: '/403', pathMatch: 'full' },
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes) ,
+  RouterModule.forChild(routes)],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}

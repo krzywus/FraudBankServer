@@ -17,5 +17,6 @@ export class TransactionResultComponent implements OnInit {
 
     ngOnInit(): void {
         this.transfer = this.transferService.getTransfer();
+        this.transferService.setTransfer(null);
     }
 }
