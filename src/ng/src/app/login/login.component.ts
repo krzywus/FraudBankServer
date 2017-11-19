@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
 
@@ -7,24 +7,19 @@ import {Router} from "@angular/router";
     templateUrl: './login.component.html',
     styleUrls: [ './login.component.css' ]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
     constructor(private authService: AuthService,
                 private router: Router) {}
 
-    ngOnInit(): void {
-
-    }
-
     login(username: string, password: string) {
         console.log('logging in');
-        this.authService.login().toPromise()
+        this.authService.login(username, password)
                 .then(
                     (isValid: boolean) => {
+                        console.log(isValid);
                         if (isValid) {
                             this.router.navigate(['/trform']);
-                        } else{
-
                         }
                     }
                 );

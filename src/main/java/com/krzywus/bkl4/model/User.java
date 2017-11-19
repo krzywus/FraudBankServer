@@ -17,10 +17,10 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private int staffId;
+    private Long userId;
 
     @Column(name = "username")
-    private String firstName;
+    private String username;
 
     @JsonIgnore
     @Column(name = "password")
