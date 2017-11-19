@@ -11,6 +11,7 @@ export class AuthService {
     isLoggedIn = false;
 
     redirectUrl: string;
+    private username: string;
 
 
     constructor(private http: Http) {
@@ -19,17 +20,20 @@ export class AuthService {
     login(username: string, password: string) {
         let url = 'http://localhost:8080/login?username='
             + username + '&password=' + password;
+        this.username = username;
         return this.http.post(url, [])
                 .toPromise()
                 .then((response : Response) => {
-                    this.isLoggedIn = true;
-                    console.log(response);
-                    console.log(response.json());
-                    return response.json();
+                    this.isLoggedIn = response.json();
+                    return this.isLoggedIn;
                 });
     }
 
     logout(): void {
         this.isLoggedIn = false;
+    }
+
+    getUsername() {
+        return this.username;
     }
 }

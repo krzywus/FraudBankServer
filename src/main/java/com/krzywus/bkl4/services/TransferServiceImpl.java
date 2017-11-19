@@ -5,10 +5,10 @@ import com.krzywus.bkl4.model.Transfer;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -24,12 +24,12 @@ public class TransferServiceImpl implements TransferService {
     }
 
     @Override
-    public Page<Transfer> findAll(Pageable pageable) {
-        return transferRepository.findAll(pageable);
+    public Transfer saveTransfer(Transfer transfer) {
+        return transferRepository.save(transfer);
     }
 
     @Override
-    public Transfer saveTransfer(Transfer transfer) {
-        return transferRepository.save(transfer);
+    public List<Transfer> findAll(String username) {
+        return transferRepository.findAllByUsername(username);
     }
 }

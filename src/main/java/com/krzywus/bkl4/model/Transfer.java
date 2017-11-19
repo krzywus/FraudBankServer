@@ -20,6 +20,9 @@ public class Transfer {
     @Column(name = "id")
     private int transferId;
 
+    @Column(name = "username")
+    private String username;
+
     @Column(name = "recipient")
     private String recipient;
 

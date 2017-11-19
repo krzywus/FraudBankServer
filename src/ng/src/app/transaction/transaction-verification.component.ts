@@ -3,6 +3,7 @@ import {Transfer} from "../model/transfer";
 import {Router} from "@angular/router";
 import {TransferService} from "../services/TransferService";
 import {Http, Headers, Response} from "@angular/http";
+import {AuthService} from "../services/auth.service";
 
 @Component({
     selector: 'transaction-verify',
@@ -19,7 +20,8 @@ export class TransactionVerificationComponent implements OnInit {
 
     constructor(private http: Http,
                 private router: Router,
-                private transferService: TransferService) {}
+                private transferService: TransferService,
+                private authService: AuthService) {}
 
     ngOnInit(): void {
         console.log('initializing');
@@ -28,7 +30,8 @@ export class TransactionVerificationComponent implements OnInit {
 
     accept(){
         let options = {headers: this.updateHeaders};
-        this.http.post(this.url, this.transfer, options)
+        let url = this.url + '?username=' + this.authService.getUsername();
+        this.http.post(url, this.transfer, options)
             .toPromise()
             .then((response: Response) => this.getTransfer(response))
             .then((retTransfer: Transfer) => {

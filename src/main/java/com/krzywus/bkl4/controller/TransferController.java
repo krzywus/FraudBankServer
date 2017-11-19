@@ -17,18 +17,19 @@ public class TransferController {
     TransferService transferService;
 
     @GetMapping(value ={"/id"})
-    public Transfer getStaffById(@RequestParam("id") int id){
+    public Transfer getTransferById(@RequestParam("id") int id){
         return this.transferService.findTransferById(id).get();
     }
 
-    @GetMapping(value={"/all"})
-    public List<Transfer> transferList(){
-        return this.transferService
-                .findAll(new PageRequest(0,20)).getContent();
+    @GetMapping(value={"/all"}, produces = "application/json")
+    public List<Transfer> transferList(@RequestParam("username") String username){
+        return this.transferService.findAll(username);
     }
 
     @PostMapping(produces = "application/json")
-    public int receiveNewTransfer(@RequestBody Transfer transfer){
+    public int receiveNewTransfer(@RequestBody Transfer transfer,
+                                  @RequestParam String username){
+        transfer.setUsername(username);
         return this.transferService
                 .saveTransfer(transfer)
                 .getTransferId();

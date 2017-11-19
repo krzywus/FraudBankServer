@@ -23,7 +23,6 @@ public class UserController {
     @PostMapping(produces = "application/json")
     public boolean login(@RequestParam String username,
                          @RequestParam String password){
-        boolean login = this.userService.login(username, password);
-        return login;
+        return this.userService.login(username, password);
     }
 }

@@ -13,13 +13,14 @@ export class LoginComponent {
                 private router: Router) {}
 
     login(username: string, password: string) {
-        console.log('logging in');
         this.authService.login(username, password)
                 .then(
                     (isValid: boolean) => {
                         console.log(isValid);
                         if (isValid) {
                             this.router.navigate(['/trform']);
+                        } else {
+                            this.router.navigate(['/login']);
                         }
                     }
                 );
