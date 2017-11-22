@@ -35,4 +35,6 @@ public class Transfer {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "accepted")
+    private boolean accepted;
 }

@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 public interface TransferRepository extends JpaRepository<Transfer, Long> {
-    Optional<Transfer> findByTransferId(int id);
-    Page<Transfer> findAll(Pageable pageable);
+        Page<Transfer> findAll(Pageable pageable);
     List<Transfer> findAllByUsername(String username);
+    List<Transfer> findAllByAccepted(boolean accepted);
 }

@@ -5,11 +5,9 @@ import com.krzywus.bkl4.model.Transfer;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -19,11 +17,6 @@ public class TransferServiceImpl implements TransferService {
     private TransferRepository transferRepository;
 
     @Override
-    public Optional<Transfer> findTransferById(int id) {
-        return transferRepository.findByTransferId(id);
-    }
-
-    @Override
     public Transfer saveTransfer(Transfer transfer) {
         return transferRepository.save(transfer);
     }
@@ -31,5 +24,10 @@ public class TransferServiceImpl implements TransferService {
     @Override
     public List<Transfer> findAll(String username) {
         return transferRepository.findAllByUsername(username);
+    }
+
+    @Override
+    public List<Transfer> findAllByAccepted(boolean accepted) {
+        return transferRepository.findAllByAccepted(accepted);
     }
 }

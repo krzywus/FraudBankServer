@@ -16,20 +16,21 @@ public class TransferController {
 
     TransferService transferService;
 
-    @GetMapping(value ={"/id"})
-    public Transfer getTransferById(@RequestParam("id") int id){
-        return this.transferService.findTransferById(id).get();
-    }
-
     @GetMapping(value={"/all"}, produces = "application/json")
     public List<Transfer> transferList(@RequestParam("username") String username){
         return this.transferService.findAll(username);
+    }
+
+    @GetMapping(value={"admin/all"}, produces = "application/json")
+    public List<Transfer> unacceptedTransferList(){
+        return this.transferService.findAllByAccepted(false);
     }
 
     @PostMapping(produces = "application/json")
     public int receiveNewTransfer(@RequestBody Transfer transfer,
                                   @RequestParam String username){
         transfer.setUsername(username);
+        transfer.setAccepted(false);
         return this.transferService
                 .saveTransfer(transfer)
                 .getTransferId();
