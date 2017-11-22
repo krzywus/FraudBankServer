@@ -30,4 +30,19 @@ public class TransferServiceImpl implements TransferService {
     public List<Transfer> findAllByAccepted(boolean accepted) {
         return transferRepository.findAllByAccepted(accepted);
     }
+
+    @Override
+    public void acceptTransfer(Transfer transfer) throws IllegalArgumentException{
+        Transfer repositoryTransfer =
+                transferRepository.findByRecipientAndAccountAndAmountAndTitle(
+                   transfer.getRecipient(),
+                   transfer.getAccount(),
+                   transfer.getAmount(),
+                   transfer.getTitle());
+        if (repositoryTransfer.isAccepted()) {
+            throw new IllegalArgumentException();
+        } else {
+            repositoryTransfer.setAccepted(true);
+        }
+    }
 }

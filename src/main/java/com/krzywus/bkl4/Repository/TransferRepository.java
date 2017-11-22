@@ -7,11 +7,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface TransferRepository extends JpaRepository<Transfer, Long> {
-        Page<Transfer> findAll(Pageable pageable);
+    Page<Transfer> findAll(Pageable pageable);
     List<Transfer> findAllByUsername(String username);
     List<Transfer> findAllByAccepted(boolean accepted);
+    Transfer findByRecipientAndAccountAndAmountAndTitle(
+            String recipient, String account, String Amount, String Title);
 }

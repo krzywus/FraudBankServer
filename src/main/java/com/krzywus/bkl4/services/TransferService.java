@@ -8,4 +8,5 @@ public interface TransferService {
     Transfer saveTransfer(Transfer transfer);
     List<Transfer> findAll(String username);
     List<Transfer> findAllByAccepted(boolean accepted);
+    void acceptTransfer(Transfer transfer) throws IllegalArgumentException;
 }
