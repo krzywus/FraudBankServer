@@ -16,6 +16,8 @@ import {TransferService} from "./services/TransferService";
 import {AuthService} from "./services/auth.service";
 import {AuthGuard} from "./services/AuthGuard";
 import {TransferGuard} from "./services/transfer-guard.service";
+import {AdminGuard} from "./services/admin.guard";
+import {AdminComponent} from "./admin/admin.component";
 
 @NgModule({
   declarations:[
@@ -25,7 +27,8 @@ import {TransferGuard} from "./services/transfer-guard.service";
     TransactionFormComponent,
     TransactionResultComponent,
     TransactionVerificationComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,12 @@ import {TransferGuard} from "./services/transfer-guard.service";
     HttpModule,
     HttpClientModule
   ],
-  providers: [TransferService, AuthService, AuthGuard, TransferGuard],
+  providers: [
+      TransferService,
+      AuthService,
+      AuthGuard,
+      TransferGuard,
+      AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

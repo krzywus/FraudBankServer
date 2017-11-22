@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
@@ -8,8 +7,9 @@ import {Http, Response} from "@angular/http";
 
 @Injectable()
 export class AuthService {
-    isLoggedIn = false;
 
+    isLoggedIn = false;
+    isAdminLoggedIn : boolean = false;
     redirectUrl: string;
     private username: string;
 
@@ -25,6 +25,9 @@ export class AuthService {
                 .toPromise()
                 .then((response : Response) => {
                     this.isLoggedIn = response.json();
+                    if (username == 'admin') {
+                        this.isAdminLoggedIn = response.json();
+                    }
                     return this.isLoggedIn;
                 });
     }

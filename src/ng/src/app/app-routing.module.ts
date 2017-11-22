@@ -10,10 +10,12 @@ import {ForbiddenComponent} from "./403/forbidden.component";
 import {AuthGuard} from "./services/AuthGuard";
 import {buildPath} from "selenium-webdriver/http";
 import {TransferGuard} from "./services/transfer-guard.service";
+import {AdminGuard} from "./services/admin.guard";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login',  component: LoginComponent },
+  { path: 'admin',  component: TransactionFormComponent, canActivate: [AdminGuard]},
   { path: 'trform',  component: TransactionFormComponent, canActivate: [AuthGuard]},
   { path: 'trver',  component: TransactionVerificationComponent,canActivate: [TransferGuard] },
   { path: 'trres',  component: TransactionResultComponent,canActivate: [TransferGuard] },
