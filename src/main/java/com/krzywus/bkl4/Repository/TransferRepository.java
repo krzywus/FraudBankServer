@@ -15,4 +15,5 @@ public interface TransferRepository extends JpaRepository<Transfer, Long> {
     List<Transfer> findAllByAccepted(boolean accepted);
     Transfer findByRecipientAndAccountAndAmountAndTitle(
             String recipient, String account, String Amount, String Title);
+    Transfer findByTransferId(int transferId);
 }

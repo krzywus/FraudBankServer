@@ -33,16 +33,12 @@ public class TransferServiceImpl implements TransferService {
 
     @Override
     public void acceptTransfer(Transfer transfer) throws IllegalArgumentException{
-        Transfer repositoryTransfer =
-                transferRepository.findByRecipientAndAccountAndAmountAndTitle(
-                   transfer.getRecipient(),
-                   transfer.getAccount(),
-                   transfer.getAmount(),
-                   transfer.getTitle());
+        Transfer repositoryTransfer = transferRepository.findByTransferId(transfer.getTransferId());
         if (repositoryTransfer.isAccepted()) {
             throw new IllegalArgumentException();
         } else {
             repositoryTransfer.setAccepted(true);
+            saveTransfer(repositoryTransfer);
         }
     }
 }

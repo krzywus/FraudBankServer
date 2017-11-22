@@ -26,7 +26,7 @@ public class TransferController {
         return this.transferService.findAllByAccepted(false);
     }
 
-    @PutMapping(value={"admin/accept"}, produces = "application/json")
+    @PostMapping(value={"admin/accept"}, produces = "application/json")
     public void unacceptedTransferList(@RequestBody Transfer transfer){
         this.transferService.acceptTransfer(transfer);
     }
