@@ -30,8 +30,11 @@ export class AdminComponent {
 
     accept(transfer : Transfer) {
         let options = {headers: this.updateHeaders};
-        let url = this.url + '/accept';
-        this.http.post(url, transfer, options).toPromise().catch(this.handleError);
+        let url = this.url + '/accept'; 
+        this.http.post(url, transfer, options)
+            .toPromise()
+            .then(() => this.fetchData())
+            .catch(this.handleError);
     }
 
 

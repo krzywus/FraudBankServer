@@ -14,15 +14,22 @@ export class LoginComponent {
 
     login(username: string, password: string) {
         this.authService.login(username, password)
-                .then(
-                    (isValid: boolean) => {
-                        console.log(isValid);
+            .then(
+                (isValid: boolean) => {
                         if (isValid) {
-                            this.router.navigate(['/trform']);
+                            this.navigate();
                         } else {
                             this.router.navigate(['/login']);
                         }
                     }
                 );
+    }
+
+    navigate() {
+        if (this.authService.isAdminLoggedIn) {
+            this.router.navigate(['/admin']);
+        } else {
+            this.router.navigate(['/trform']);
+        }
     }
 }
