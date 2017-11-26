@@ -19,6 +19,17 @@
                 'account': '66696669666',
                 'amount': '1000',
                 'title': 'gimme gimme'  };
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+                    var num = xhr.response;
+                    console.log(num);
+                    var xhr2 = new XMLHttpRequest();
+                    xhr2.open('POST', 'http://localhost:8080/transfer/admin/accept', true);
+                    xhr2.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+                    var j = { 'transferId': num};
+                    xhr2.send(JSON.stringify(j));
+                }
+            };
             xhr.send(JSON.stringify(j));
         }
     })();
