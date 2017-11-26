@@ -1,0 +1,7 @@
+HTTP/1.1 405 
+Allow: POST
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Sun, 26 Nov 2017 10:42:19 GMT
+
+{"timestamp":1511692940095,"status":405,"error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'GET' not supported","path":"/login.sfish"}

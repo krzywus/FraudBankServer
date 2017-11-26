@@ -1,0 +1,5 @@
+var child = [
+  { 'dupe': true, 'type': 32, 'name': 'decode.js', 'dir': 'c0', 'linked': 1, 'url': 'http://localhost:4200/querystring-es3/decode.js', 'fetched': true, 'code': 404, 'len': 164, 'decl_mime': 'text/html', 'sniff_mime': '[none]', 'cset': 'utf-8', 'missing': true, 'csens': false, 'child_cnt': 0, 'issue_cnt': [ 0, 0, 0, 0, 0 ], 'sig': 0xffdfffff },
+  { 'dupe': true, 'type': 32, 'name': 'encode.js', 'dir': 'c1', 'linked': 1, 'url': 'http://localhost:4200/querystring-es3/encode.js', 'fetched': true, 'code': 404, 'len': 164, 'decl_mime': 'text/html', 'sniff_mime': '[none]', 'cset': 'utf-8', 'missing': true, 'csens': false, 'child_cnt': 0, 'issue_cnt': [ 0, 0, 0, 0, 0 ], 'sig': 0xffdfffff },
+  { 'dupe': true, 'type': 32, 'name': 'index.js', 'dir': 'c2', 'linked': 1, 'url': 'http://localhost:4200/querystring-es3/index.js', 'fetched': true, 'code': 404, 'len': 163, 'decl_mime': 'text/html', 'sniff_mime': '[none]', 'cset': 'utf-8', 'missing': true, 'csens': false, 'child_cnt': 0, 'issue_cnt': [ 0, 0, 0, 0, 0 ], 'sig': 0xffdfffff }
+];

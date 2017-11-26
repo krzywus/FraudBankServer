@@ -1,0 +1,73 @@
+HTTP/1.1 200 
+Content-Type: application/alps+json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Sun, 26 Nov 2017 10:42:29 GMT
+
+{
+  "alps" : {
+    "version" : "1.0",
+    "descriptors" : [ {
+      "id" : "user-representation",
+      "href" : "http://localhost:8080/profile/users",
+      "descriptors" : [ {
+        "name" : "username",
+        "type" : "SEMANTIC"
+      } ]
+    }, {
+      "id" : "get-users",
+      "name" : "users",
+      "type" : "SAFE",
+      "rt" : "#user-representation",
+      "descriptors" : [ {
+        "name" : "page",
+        "doc" : {
+          "value" : "The page to return.",
+          "format" : "TEXT"
+        },
+        "type" : "SEMANTIC"
+      }, {
+        "name" : "size",
+        "doc" : {
+          "value" : "The size of the page to return.",
+          "format" : "TEXT"
+        },
+        "type" : "SEMANTIC"
+      }, {
+        "name" : "sort",
+        "doc" : {
+          "value" : "The sorting criteria to use to calculate the content of the page.",
+          "format" : "TEXT"
+        },
+        "type" : "SEMANTIC"
+      } ]
+    }, {
+      "id" : "create-users",
+      "name" : "users",
+      "type" : "UNSAFE",
+      "rt" : "#user-representation"
+    }, {
+      "id" : "update-user",
+      "name" : "user",
+      "type" : "IDEMPOTENT",
+      "rt" : "#user-representation"
+    }, {
+      "id" : "delete-user",
+      "name" : "user",
+      "type" : "IDEMPOTENT",
+      "rt" : "#user-representation"
+    }, {
+      "id" : "patch-user",
+      "name" : "user",
+      "type" : "UNSAFE",
+      "rt" : "#user-representation"
+    }, {
+      "id" : "get-user",
+      "name" : "user",
+      "type" : "SAFE",
+      "rt" : "#user-representation"
+    }, {
+      "name" : "findUserByUsername",
+      "type" : "SAFE"
+    } ]
+  }
+}
