@@ -22,6 +22,11 @@ public class TransferServiceImpl implements TransferService {
     }
 
     @Override
+    public Transfer findTransferById(int id) {
+        return transferRepository.findByTransferId(id);
+    }
+
+    @Override
     public List<Transfer> findAll(String username) {
         return transferRepository.findAllByUsername(username);
     }

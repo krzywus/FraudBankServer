@@ -4,7 +4,6 @@ import com.krzywus.bkl4.model.Transfer;
 import com.krzywus.bkl4.services.TransferService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +18,12 @@ public class TransferController {
     @GetMapping(value={"/all"}, produces = "application/json")
     public List<Transfer> transferList(@RequestParam("username") String username){
         return this.transferService.findAll(username);
+    }
+
+
+    @GetMapping(value={"/id"}, produces = "application/json")
+    public Transfer transferList(@RequestParam("id") int id){
+        return this.transferService.findTransferById(id);
     }
 
     @GetMapping(value={"admin/all"}, produces = "application/json")
