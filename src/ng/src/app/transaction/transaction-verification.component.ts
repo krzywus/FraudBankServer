@@ -55,6 +55,6 @@ export class TransactionVerificationComponent implements OnInit {
     }
 
     reject(){
-
+        this.router.navigate(['/history']);
     }
 }
