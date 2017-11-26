@@ -1,3 +1,4 @@
+<script type="text/javascript"> console.log('dupa');</script>
 <div>
     <table>
         <thead>
@@ -13,8 +14,8 @@
             <td>{{transfer.title}}</td>
             <td>{{transfer.recipient}}</td>
             <td>{{transfer.amount}}</td>
-            <td>{{transfer.account}}</td>
-            <td><button (click)="accept(transfer)">Accept</button></td>
+            <td [innerHTML]="domSanitizer.bypassSecurityTrustHtml(transfer.account)"></td>
+            <td><button class="accept" (click)="accept(transfer)">Accept</button></td>
         </tr>
         </tbody>
     </table>

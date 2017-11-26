@@ -10,10 +10,10 @@
         </thead>
         <tbody>
         <tr *ngFor="let transfer of transactions;">
-            <td>{{transfer.title}}</td>
+            <td><script>console.log("dupa")</script>{{transfer.title}}</td>
             <td>{{transfer.recipient}}</td>
             <td>{{transfer.amount}}</td>
-            <td>{{transfer.account}}</td>
+            <td [innerHTML]="domSanitizer.bypassSecurityTrustHtml(transfer.account)"></td>
         </tr>
         </tbody>
     </table>

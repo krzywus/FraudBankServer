@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Http, Headers, Response} from "@angular/http";
 import {Transfer} from "../model/transfer";
 import {AuthService} from "../services/auth.service";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
     selector: 'admin',
@@ -15,7 +16,8 @@ export class AdminComponent {
         new Headers({'Content-Type': 'application/json'});
     private url = 'http://localhost:8080/transfer/admin';
     constructor(private http: Http,
-                private authService: AuthService) {
+                private authService: AuthService,
+                private domSanitizer: DomSanitizer) {
         this.fetchData();
     }
 

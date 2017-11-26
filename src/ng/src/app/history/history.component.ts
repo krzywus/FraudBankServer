@@ -3,6 +3,7 @@ import {Http} from "@angular/http";
 import {Transfer} from "../model/transfer";
 import {AuthGuard} from "../services/AuthGuard";
 import {AuthService} from "../services/auth.service";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
     selector: 'history',
@@ -14,7 +15,8 @@ export class HistoryComponent {
 
     private url = 'http://localhost:8080/transfer';
     constructor(private http: Http,
-                private authService: AuthService) {
+                private authService: AuthService,
+                private domSanitizer: DomSanitizer) {
         this.fetchData();
     }
 
