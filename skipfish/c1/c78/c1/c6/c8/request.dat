@@ -1,9 +1,0 @@
-GET /src/app/transaction/transaction-verification.component.ts HTTP/1.1
-Host: localhost:4200
-Accept-Encoding: gzip
-Connection: keep-alive
-User-Agent: Mozilla/5.0 SF/2.10b
-Range: bytes=0-399999
-Referer: http://localhost/
-Authorization: Basic MTIzOjEyMw==
-
